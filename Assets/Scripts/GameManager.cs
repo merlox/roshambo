@@ -59,43 +59,32 @@ public class GameManager : MonoBehaviour
 	public Button SetupMatchButton;
 	public Button CreateMatchButton;
 	public Button ReturnToListButton;
-
 	public GameObject Star;
 	public GameObject CardBackground;
-
 	public Button ReturnHomeButton;
 	public Button RematchButton;
-
 	public GameObject VictoryFrame;
 	public GameObject DefeatFrame;
 	public GameObject MatchResultFrame;
-
 	public Button MultiPlayerButton;
 	public Button SinglePlayerButton;
 	public Button StartMatchButton;
-
 	public GameObject SelectGameTypeFrame;
 	public GameObject MatchSetupFrame;
-
 	public Text UsernameText;
 	public Text PasswordText;
 	public Button LoginButton;
 	public GameObject LoginFrame;
-
 	public CardController PlayerCardController;
 	public CardController OpponentCardController;
-
 	public StarController PlayerStarController;
 	public StarController OpponentStarController;
-
 	public Toggle AllCardsToggle;
 	public Toggle RoundsToggle;
 	public Text RoundCount;
 	public Text TimerLength;
 	public Text MatchName;
-
 	private GamePrefabs prefabs;
-
 	static GameManager instance;
 	private UserId currentUserId;
 	private string username;
@@ -185,6 +174,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void OnLoginClicked() {
+        Debug.Log("Username" + this.prefabs.UsernameText.text);
 		this.username = this.prefabs.UsernameText.text;
 		this.currentUserId = new UserId();
 		this.currentUserId.GUID = Guid.NewGuid();
@@ -215,284 +205,292 @@ public class GameManager : MonoBehaviour
 		joined = true;
 	}
 
-	private bool joined = false;
-	private void OnRoomListUpdated(object sender, IRoomListController e) {
-		if(e.RoomList.Count > 0) {
-			var cl = e as NetClientRoomListController;
-			var room = e.RoomList.First();
-			cl.Join(room.State.Id);
-		}
-	}
+    private bool joined = false;
+    private void OnRoomListUpdated(object sender, IRoomListController e)
+    {
+        if (e.RoomList.Count > 0)
+        {
+            var cl = e as NetClientRoomListController;
+            var room = e.RoomList.First();
+            cl.Join(room.State.Id);
+        }
+    }
 
-	private void OnSinglePlayerClicked() {
-		this.prefabs.SelectGameTypeFrame.SetActive(false);
-		this.prefabs.RoomLobbyFrame.SetActive(true);
+    private void OnSinglePlayerClicked()
+    {
+        this.prefabs.SelectGameTypeFrame.SetActive(false);
+        this.prefabs.RoomLobbyFrame.SetActive(true);
 
-		this.Manager = new RoomManager(new LocalRoomController(new RoomId() {
-			GUID = Guid.NewGuid(),
-			Name = "Single Player Room",
-		}), this.currentUserId, this.prefabs);
-		this.Manager.DisplayMessageEvent += (_, msg) => this.DisplayMessage(msg);
-		this.Manager.Start();
-	}
+        this.Manager = new RoomManager(new LocalRoomController(new RoomId()
+        {
+            GUID = Guid.NewGuid(),
+            Name = "Single Player Room",
+        }), this.currentUserId, this.prefabs);
+        this.Manager.DisplayMessageEvent += (_, msg) => this.DisplayMessage(msg);
+        this.Manager.Start();
+    }
 
-	private void OnRematchClicked() {
-		this.prefabs.MatchResultFrame.SetActive(false);
-		this.prefabs.RoomLobbyFrame.SetActive(true);
-	}
+    private void OnRematchClicked()
+    {
+        this.prefabs.MatchResultFrame.SetActive(false);
+        this.prefabs.RoomLobbyFrame.SetActive(true);
+    }
 
-	private void OnReturnHomeClicked() {
-		this.prefabs.MatchResultFrame.SetActive(false);
-		this.prefabs.SelectGameTypeFrame.SetActive(true);
-	}
+    private void OnReturnHomeClicked()
+    {
+        this.prefabs.MatchResultFrame.SetActive(false);
+        this.prefabs.SelectGameTypeFrame.SetActive(true);
+    }
 
-	private void Update() {
-		if (this.Manager != null)
-			this.Manager.Update();
+    private void Update()
+    {
+        if (this.Manager != null)
+            this.Manager.Update();
 
-		if (this.roomlist != null)
-			this.roomlist.Update();
-	}
+        if (this.roomlist != null)
+            this.roomlist.Update();
+    }
 
-	private void DisplayMessage(string message) {
-		Debug.Log(message);
-	}
+    private void DisplayMessage(string message)
+    {
+        Debug.Log(message);
+    }
 
-	#region OLD
-	//public void CheckStatus()
-	//{
-	//    returnOriginalPosController[] Object1 = FindObjectsOfType<returnOriginalPosController>();
-	//    for (int i = 0; i < Object1.Length; i++)
-	//    {
-	//        if (Object1[i].isOnPlatform)
-	//        {
-	//            obj1 = Object1[i];
+    #region yeeet
+    //   public void CheckStatus()
+    //   {
+    //       returnOriginalPosController[] Object1 = FindObjectsOfType<returnOriginalPosController>();
+    //       for (int i = 0; i < Object1.Length; i++)
+    //       {
+    //           if (Object1[i].isOnPlatform)
+    //           {
+    //               obj1 = Object1[i];
 
-	//            if (Object1[i].word == "r")
-	//            {
-	//                player_Choice = GameChoices.ROCK;
-	//            }
-	//            if (Object1[i].word == "p")
-	//            {
-	//                player_Choice = GameChoices.PAPER;
-	//            }
-	//            if (Object1[i].word == "s")
-	//            {
-	//                player_Choice = GameChoices.SCISSORS;
-	//            }
+    //               if (Object1[i].word == "r")
+    //               {
+    //                   player_Choice = GameChoices.ROCK;
+    //               }
+    //               if (Object1[i].word == "p")
+    //               {
+    //                   player_Choice = GameChoices.PAPER;
+    //               }
+    //               if (Object1[i].word == "s")
+    //               {
+    //                   player_Choice = GameChoices.SCISSORS;
+    //               }
 
-	//            break;
-	//        }
-	//    }
+    //               break;
+    //           }
+    //       }
 
-	//    aiReturnOriginalPosController[] Object2 = FindObjectsOfType<aiReturnOriginalPosController>();
-	//    for (int i = 0; i < Object2.Length; i++)
-	//    {
-	//        if (Object2[i].isOnPlatform)
-	//        {
-	//            obj2 = Object2[i];
+    //       aiReturnOriginalPosController[] Object2 = FindObjectsOfType<aiReturnOriginalPosController>();
+    //       for (int i = 0; i < Object2.Length; i++)
+    //       {
+    //           if (Object2[i].isOnPlatform)
+    //           {
+    //               obj2 = Object2[i];
 
-	//            if (Object2[i].word == "r")
-	//            {
-	//                opponent_Choice = GameChoices.ROCK;
-	//            }
-	//            if (Object2[i].word == "p")
-	//            {
-	//                opponent_Choice = GameChoices.PAPER;
-	//            }
-	//            if (Object2[i].word == "s")
-	//            {
-	//                opponent_Choice = GameChoices.SCISSORS;
-	//            }
+    //               if (Object2[i].word == "r")
+    //               {
+    //                   opponent_Choice = GameChoices.ROCK;
+    //               }
+    //               if (Object2[i].word == "p")
+    //               {
+    //                   opponent_Choice = GameChoices.PAPER;
+    //               }
+    //               if (Object2[i].word == "s")
+    //               {
+    //                   opponent_Choice = GameChoices.SCISSORS;
+    //               }
 
-	//            break;
-	//        }
-	//    }
+    //               break;
+    //           }
+    //       }
 
-	//    DetermineWinner();
-	//}
+    //       DetermineWinner();
+    //   }
 
-	//void DetermineWinner()
-	//{
+    //   void DetermineWinner()
+    //   {
 
-	//    if (player_Choice == opponent_Choice)
-	//    {
-	//        // draw
+    //       if (player_Choice == opponent_Choice)
+    //       {
+    //           // draw
 
-	//        infoText.text = "It's a Draw!";
-	//        StartCoroutine(DisplayWinnerAndRestart());
+    //           infoText.text = "It's a Draw!";
+    //           StartCoroutine(DisplayWinnerAndRestart());
 
-	//        return;
+    //           return;
 
-	//    }
+    //       }
 
-	//    if (player_Choice == GameChoices.PAPER && opponent_Choice == GameChoices.ROCK)
-	//    {
-	//        // player won
+    //       if (player_Choice == GameChoices.PAPER && opponent_Choice == GameChoices.ROCK)
+    //       {
+    //           // player won
 
-	//        infoText.text = "You Win!";
-	//        StartCoroutine(DisplayWinnerAndRestart());
-	//        lose = false;
-	//        win = true;
-	//        if (counter < 3)
-	//            counter++;
-	//        starActivator();
+    //           infoText.text = "You Win!";
+    //           StartCoroutine(DisplayWinnerAndRestart());
+    //           lose = false;
+    //           win = true;
+    //           if (counter < 3)
+    //               counter++;
+    //           starActivator();
 
-	//        return;
-	//    }
+    //           return;
+    //       }
 
-	//    if (opponent_Choice == GameChoices.PAPER && player_Choice == GameChoices.ROCK)
-	//    {
-	//        // opponent won
+    //       if (opponent_Choice == GameChoices.PAPER && player_Choice == GameChoices.ROCK)
+    //       {
+    //           // opponent won
 
-	//        infoText.text = "You Lose!";
-	//        StartCoroutine(DisplayWinnerAndRestart());
-	//        lose = true;
-	//        win = false;
-	//        if (counter > 0)
-	//            counter--;
-	//        starActivator();
+    //           infoText.text = "You Lose!";
+    //           StartCoroutine(DisplayWinnerAndRestart());
+    //           lose = true;
+    //           win = false;
+    //           if (counter > 0)
+    //               counter--;
+    //           starActivator();
 
-	//        return;
-	//    }
+    //           return;
+    //       }
 
-	//    if (player_Choice == GameChoices.ROCK && opponent_Choice == GameChoices.SCISSORS)
-	//    {
-	//        // player won
-	//        lose = false;
-	//        win = true;
-	//        infoText.text = "You Win!";
-	//        StartCoroutine(DisplayWinnerAndRestart());
-	//        if (counter < 3)
-	//            counter++;
-	//        starActivator();
+    //       if (player_Choice == GameChoices.ROCK && opponent_Choice == GameChoices.SCISSORS)
+    //       {
+    //           // player won
+    //           lose = false;
+    //           win = true;
+    //           infoText.text = "You Win!";
+    //           StartCoroutine(DisplayWinnerAndRestart());
+    //           if (counter < 3)
+    //               counter++;
+    //           starActivator();
 
-	//        return;
-	//    }
+    //           return;
+    //       }
 
-	//    if (opponent_Choice == GameChoices.ROCK && player_Choice == GameChoices.SCISSORS)
-	//    {
-	//        // opponent won
-	//        lose = true;
-	//        win = false;
-	//        infoText.text = "You Lose! ";
-	//        StartCoroutine(DisplayWinnerAndRestart());
-	//        if (counter > 0)
-	//            counter--;
-	//        starActivator();
+    //       if (opponent_Choice == GameChoices.ROCK && player_Choice == GameChoices.SCISSORS)
+    //       {
+    //           // opponent won
+    //           lose = true;
+    //           win = false;
+    //           infoText.text = "You Lose! ";
+    //           StartCoroutine(DisplayWinnerAndRestart());
+    //           if (counter > 0)
+    //               counter--;
+    //           starActivator();
 
-	//        return;
-	//    }
+    //           return;
+    //       }
 
-	//    if (player_Choice == GameChoices.SCISSORS && opponent_Choice == GameChoices.PAPER)
-	//    {
-	//        // player won
-	//        lose = false;
-	//        win = true;
-	//        infoText.text = "You Win!";
-	//        StartCoroutine(DisplayWinnerAndRestart());
-	//        if (counter < 3)
-	//            counter++;
-	//        starActivator();
+    //       if (player_Choice == GameChoices.SCISSORS && opponent_Choice == GameChoices.PAPER)
+    //       {
+    //           // player won
+    //           lose = false;
+    //           win = true;
+    //           infoText.text = "You Win!";
+    //           StartCoroutine(DisplayWinnerAndRestart());
+    //           if (counter < 3)
+    //               counter++;
+    //           starActivator();
 
-	//        return;
-	//    }
+    //           return;
+    //       }
 
-	//    if (opponent_Choice == GameChoices.SCISSORS && player_Choice == GameChoices.PAPER)
-	//    {
-	//        // opponent won
-	//        lose = true;
-	//        win = false;
-	//        infoText.text = "You Lose!";
+    //       if (opponent_Choice == GameChoices.SCISSORS && player_Choice == GameChoices.PAPER)
+    //       {
+    //           // opponent won
+    //           lose = true;
+    //           win = false;
+    //           infoText.text = "You Lose!";
 
-	//        StartCoroutine(DisplayWinnerAndRestart());
+    //           StartCoroutine(DisplayWinnerAndRestart());
 
-	//        if (counter > 0)
-	//            counter--;
-	//        starActivator();
+    //           if (counter > 0)
+    //               counter--;
+    //           starActivator();
 
-	//        return;
-	//    }
+    //           return;
+    //       }
 
-	//}
+    //   }
 
-	//public void TimerLoss()
-	//{
+    //   public void TimerLoss()
+    //   {
 
-	//    lose = true;
-	//    win = false;
-	//    infoText.text = "You Lose!";
-	//    if (counter > 0)
-	//        counter--;
-	//    starActivator();
+    //       lose = true;
+    //       win = false;
+    //       infoText.text = "You Lose!";
+    //       if (counter > 0)
+    //           counter--;
+    //       starActivator();
 
-	//    StartCoroutine(DisplayWinnerAndRestart());
-	//}
+    //       StartCoroutine(DisplayWinnerAndRestart());
+    //   }
 
-	//IEnumerator DisplayWinnerAndRestart()
-	//{
+    //   IEnumerator DisplayWinnerAndRestart()
+    //   {
 
-	//    infoText.gameObject.SetActive(true);
+    //       infoText.gameObject.SetActive(true);
 
-	//    yield return new WaitForSeconds(2f);
+    //       yield return new WaitForSeconds(2f);
 
-	//    infoText.gameObject.SetActive(false);
+    //       infoText.gameObject.SetActive(false);
 
-	//    if(obj1!=null)
-	//    {
-	//        obj1.destroyIT();
-	//    }
-	//    if(obj2!=null)
-	//    {
-	//        obj2.destroyIT();
-	//    }
+    //       if (obj1 != null)
+    //       {
+    //           obj1.destroyIT();
+    //       }
+    //       if (obj2 != null)
+    //       {
+    //           obj2.destroyIT();
+    //       }
 
-	//    coundownTimerController.Instance.RunTimer();
+    //       coundownTimerController.Instance.RunTimer();
 
-	//}
+    //   }
 
-	//void starActivator()
-	//{
-	//    if (counter == 2 && win == true)
-	//    {
-	//        Debug.Log("1");
-	//        playerStars[1].SetActive(true);
-	//        oponentStars[1].SetActive(false);
-	//        win = false;
-	//    }
-	//    if (counter == 3 && win == true)
-	//    {
-	//        Debug.Log("2");
-	//        playerStars[2].SetActive(true);
-	//        oponentStars[0].SetActive(false);
-	//        win = false;
-	//    }
+    //   void starActivator()
+    //   {
+    //       if (counter == 2 && win == true)
+    //       {
+    //           Debug.Log("1");
+    //           playerStars[1].SetActive(true);
+    //           oponentStars[1].SetActive(false);
+    //           win = false;
+    //       }
+    //       if (counter == 3 && win == true)
+    //       {
+    //           Debug.Log("2");
+    //           playerStars[2].SetActive(true);
+    //           oponentStars[0].SetActive(false);
+    //           win = false;
+    //       }
 
-	//    if (counter == 2 && lose == true)
-	//    {
-	//        Debug.Log("22");
-	//        playerStars[2].SetActive(false);
-	//        oponentStars[0].SetActive(true);
-	//        lose = false;
-	//    }
-	//    if (counter == 1 && lose == true)
-	//    {
-	//        Debug.Log("33");
-	//        playerStars[1].SetActive(false);
-	//        oponentStars[1].SetActive(true);
-	//        lose = false;
-	//    }
-	//    if (counter == 0 && lose == true)
-	//    {
-	//        Debug.Log("44");
-	//        playerStars[0].SetActive(false);
-	//        oponentStars[2].SetActive(true);
-	//        infoText.text = "Game over!";
-	//        lose = false;
-	//        coundownTimerController.Instance.flag=1;
-	//        SceneManager.LoadScene("GameOver");
-	//    }
+    //       if (counter == 2 && lose == true)
+    //       {
+    //           Debug.Log("22");
+    //           playerStars[2].SetActive(false);
+    //           oponentStars[0].SetActive(true);
+    //           lose = false;
+    //       }
+    //       if (counter == 1 && lose == true)
+    //       {
+    //           Debug.Log("33");
+    //           playerStars[1].SetActive(false);
+    //           oponentStars[1].SetActive(true);
+    //           lose = false;
+    //       }
+    //       if (counter == 0 && lose == true)
+    //       {
+    //           Debug.Log("44");
+    //           playerStars[0].SetActive(false);
+    //           oponentStars[2].SetActive(true);
+    //           infoText.text = "Game over!";
+    //           lose = false;
+    //           coundownTimerController.Instance.flag = 1;
+    //           SceneManager.LoadScene("GameOver");
+    //       }
 
-	//}
-	#endregion
+    //   }
+    #endregion yeet
 }
