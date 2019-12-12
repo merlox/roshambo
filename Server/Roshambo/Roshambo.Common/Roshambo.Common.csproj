@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;$(ProjectDir)..\..\..\Assets\Plugins\$(ProjectName).dll&quot;" />
+  </Target>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Chip.Net.Providers.Lidgren\Chip.Net.Providers.Lidgren.csproj" />
+    <ProjectReference Include="..\..\Chip.Net\Chip.Net\Chip.Net.csproj" />
+    <ProjectReference Include="..\..\Lidgren.Network\Lidgren.Network.csproj" />
+  </ItemGroup>
+</Project>

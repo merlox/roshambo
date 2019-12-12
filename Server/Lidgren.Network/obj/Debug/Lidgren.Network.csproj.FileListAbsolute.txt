@@ -1,0 +1,14 @@
+C:\Users\Potatochip\source\repos\lidgren-network-gen3\Lidgren.Network\bin\Debug\Lidgren.Network.XML
+C:\Users\Potatochip\source\repos\lidgren-network-gen3\Lidgren.Network\bin\Debug\Lidgren.Network.dll
+C:\Users\Potatochip\source\repos\lidgren-network-gen3\Lidgren.Network\bin\Debug\Lidgren.Network.pdb
+C:\Users\Potatochip\source\repos\lidgren-network-gen3\Lidgren.Network\obj\Debug\Lidgren.Network.csprojAssemblyReference.cache
+C:\Users\Potatochip\source\repos\lidgren-network-gen3\Lidgren.Network\obj\Debug\Lidgren.Network.csproj.CoreCompileInputs.cache
+C:\Users\Potatochip\source\repos\lidgren-network-gen3\Lidgren.Network\obj\Debug\Lidgren.Network.dll
+C:\Users\Potatochip\source\repos\lidgren-network-gen3\Lidgren.Network\obj\Debug\Lidgren.Network.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Lidgren.Network\bin\Debug\Lidgren.Network.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Lidgren.Network\obj\Debug\Lidgren.Network.csproj.CoreCompileInputs.cache
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Lidgren.Network\bin\Debug\Lidgren.Network.XML
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Lidgren.Network\bin\Debug\Lidgren.Network.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Lidgren.Network\obj\Debug\Lidgren.Network.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Lidgren.Network\obj\Debug\Lidgren.Network.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Lidgren.Network\obj\Debug\Lidgren.Network.csprojAssemblyReference.cache

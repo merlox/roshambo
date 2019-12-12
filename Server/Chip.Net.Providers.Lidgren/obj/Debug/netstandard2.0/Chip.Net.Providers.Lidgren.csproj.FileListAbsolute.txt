@@ -1,0 +1,30 @@
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.deps.json
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.dll
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.pdb
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.dll
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Lidgren.Network.dll
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Lidgren.Network.pdb
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Lidgren.Network.xml
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.pdb
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.csprojAssemblyReference.cache
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.csproj.CoreCompileInputs.cache
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.AssemblyInfoInputs.cache
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.AssemblyInfo.cs
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.csproj.CopyComplete
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.dll
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.csprojAssemblyReference.cache
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.csproj.CoreCompileInputs.cache
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.AssemblyInfoInputs.cache
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.AssemblyInfo.cs
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.deps.json
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Lidgren.Network.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Chip.Net.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Lidgren.Network.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\bin\Debug\netstandard2.0\Lidgren.Network.xml
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.csproj.CopyComplete
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Chip.Net.Providers.Lidgren\obj\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.pdb

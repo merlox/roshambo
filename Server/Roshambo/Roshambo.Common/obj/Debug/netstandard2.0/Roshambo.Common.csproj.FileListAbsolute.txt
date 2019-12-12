@@ -1,0 +1,17 @@
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\obj\Debug\netstandard2.0\Roshambo.Common.csprojAssemblyReference.cache
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\obj\Debug\netstandard2.0\Roshambo.Common.csproj.CoreCompileInputs.cache
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\obj\Debug\netstandard2.0\Roshambo.Common.AssemblyInfoInputs.cache
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\obj\Debug\netstandard2.0\Roshambo.Common.AssemblyInfo.cs
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Roshambo.Common.deps.json
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Roshambo.Common.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Roshambo.Common.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Chip.Net.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Lidgren.Network.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Chip.Net.Providers.Lidgren.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Chip.Net.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Lidgren.Network.pdb
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\bin\Debug\netstandard2.0\Lidgren.Network.xml
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\obj\Debug\netstandard2.0\Roshambo.Common.csproj.CopyComplete
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\obj\Debug\netstandard2.0\Roshambo.Common.dll
+C:\Users\Potatochip\Desktop\Roshambo Project\roshambo\Server\Roshambo\Roshambo.Common\obj\Debug\netstandard2.0\Roshambo.Common.pdb

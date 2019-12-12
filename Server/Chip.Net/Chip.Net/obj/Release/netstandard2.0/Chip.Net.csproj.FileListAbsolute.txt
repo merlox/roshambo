@@ -1,0 +1,9 @@
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\bin\Release\netstandard2.0\Chip.Net.deps.json
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\bin\Release\netstandard2.0\Chip.Net.dll
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\bin\Release\netstandard2.0\Chip.Net.pdb
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\obj\Release\netstandard2.0\Chip.Net.csprojAssemblyReference.cache
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\obj\Release\netstandard2.0\Chip.Net.csproj.CoreCompileInputs.cache
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\obj\Release\netstandard2.0\Chip.Net.AssemblyInfoInputs.cache
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\obj\Release\netstandard2.0\Chip.Net.AssemblyInfo.cs
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\obj\Release\netstandard2.0\Chip.Net.dll
+C:\Users\Potatochip\source\repos\Chip.Net\Chip.Net\Chip.Net\obj\Release\netstandard2.0\Chip.Net.pdb

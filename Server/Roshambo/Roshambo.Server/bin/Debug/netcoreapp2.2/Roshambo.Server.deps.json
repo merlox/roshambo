@@ -1,0 +1,75 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "Roshambo.Server/1.0.0": {
+        "dependencies": {
+          "Roshambo.Common": "1.0.0"
+        },
+        "runtime": {
+          "Roshambo.Server.dll": {}
+        }
+      },
+      "Chip.Net/1.0.1": {
+        "runtime": {
+          "Chip.Net.dll": {}
+        }
+      },
+      "Chip.Net.Providers.Lidgren/1.0.0": {
+        "dependencies": {
+          "Chip.Net": "1.0.1",
+          "Lidgren.Network": "1.0.0"
+        },
+        "runtime": {
+          "Chip.Net.Providers.Lidgren.dll": {}
+        }
+      },
+      "Lidgren.Network/1.0.0": {
+        "runtime": {
+          "Lidgren.Network.dll": {}
+        }
+      },
+      "Roshambo.Common/1.0.0": {
+        "dependencies": {
+          "Chip.Net": "1.0.1",
+          "Chip.Net.Providers.Lidgren": "1.0.0",
+          "Lidgren.Network": "1.0.0"
+        },
+        "runtime": {
+          "Roshambo.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Roshambo.Server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Chip.Net/1.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Chip.Net.Providers.Lidgren/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Lidgren.Network/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Roshambo.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
