@@ -687,7 +687,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -708,10 +708,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: aeea37b9-f561-416c-8519-c8834e4d5e9b
+  cloudProjectId: f99a32fa-7613-4d15-bcaf-9e7652bb2a59
   framebufferDepthMemorylessMode: 0
   projectName: roshambo
-  organizationId: game-diversion
+  organizationId: merunasgr
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
