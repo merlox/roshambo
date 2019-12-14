@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: d2e2ce2390e1947a7aca9d388d459d22
+  - enabled: 1
+    path: Assets/Scenes/Matchmaking.unity
+    guid: 2bf1f22a89c6b455a93ca8c028aadc0c
+  - enabled: 1
+    path: Assets/Scenes/CreateGame.unity
+    guid: 294b63fd42abc4a9d8e0af32be6e00e6
   m_configObjects: {}

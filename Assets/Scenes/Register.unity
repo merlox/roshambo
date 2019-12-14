@@ -1927,13 +1927,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1954259461}
   m_TextComponent: {fileID: 660116403}
   m_Placeholder: {fileID: 1762463694}
-  m_ContentType: 5
+  m_ContentType: 4
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 6
+  m_KeyboardType: 1
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 4
+  m_CharacterValidation: 3
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:

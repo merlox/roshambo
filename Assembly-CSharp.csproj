@@ -65,12 +65,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CardController.cs" />
     <Compile Include="Assets\Scripts\CardInfo.cs" />
+    <Compile Include="Assets\Scripts\CreateGameController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LoginManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MatchManager.cs" />
     <Compile Include="Assets\Scripts\Managers\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Managers\RoundManager.cs" />
     <Compile Include="Assets\Scripts\MatchListEntry.cs" />
+    <Compile Include="Assets\Scripts\MatchmakingController.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\MySceneManager.cs" />
     <Compile Include="Assets\Scripts\Old\AiManagerController.cs" />
     <Compile Include="Assets\Scripts\Old\aiReturnOriginalPosController.cs" />
