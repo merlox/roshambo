@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{62B40923-5258-514D-E46D-776CAE424576}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CreateGameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Menu.cs">
     <Files>
-      <File FileName="Assets/Scripts/CreateGameController.cs" Line="33" Column="21" />
+      <File FileName="Assets/Scripts/CreateGameController.cs" Line="127" Column="1" />
+      <File FileName="Assets/Scripts/Menu.cs" Line="12" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,7 +10,7 @@
           <Node name="roshambo" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="CreateGameController.cs" selected="True" />
+                <Node name="Menu.cs" selected="True" />
               </Node>
             </Node>
             <Node name="Packages" expanded="True" />
@@ -20,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e1eb97df-635f-4e8a-a34b-179ee0f4054a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e73f3d73-e8c6-4d90-9e07-54f0e396b72e" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

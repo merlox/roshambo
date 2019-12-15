@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class UserJsonResponse
 {
     public bool ok;
-    public string message;
+    public string msg;
 }
 
 public class RegisterManager : MonoBehaviour
@@ -90,7 +90,7 @@ public class RegisterManager : MonoBehaviour
             {
                 UserJsonResponse res = JsonUtility.FromJson<UserJsonResponse>(responseText);
                 responseOk = res.ok;
-                responseMessage = res.message;
+                responseMessage = res.msg;
             }
             if (www.isNetworkError || www.isHttpError)
             {
@@ -108,6 +108,7 @@ public class RegisterManager : MonoBehaviour
             else
             {
                 ShowSuccess(responseMessage);
+                yield return new WaitForSeconds(2);
                 SceneManager.LoadScene("Login");
                 yield break;
             }
