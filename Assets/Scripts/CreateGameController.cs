@@ -27,6 +27,9 @@ public class CreateGameController : MonoBehaviour
 
     void CreateGame()
 	{
+        ShowError("");
+        ShowSuccess("");
+
         ToggleSpinner(true);
         int selectedDropdownValue = gameType.value;
         string selectedDropdownText = gameType.options[gameType.value].text;
@@ -117,11 +120,10 @@ public class CreateGameController : MonoBehaviour
             {
                 // Give the user 2 seconds to see the success message and then redirect
                 ShowSuccess(responseMessage);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(Static.timeAfterAction);
                 SceneManager.LoadScene("Matchmaking");
                 yield break;
             }
-
         }
     }
 }

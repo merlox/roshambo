@@ -91,6 +91,8 @@ public class RegisterManager : MonoBehaviour
                 UserJsonResponse res = JsonUtility.FromJson<UserJsonResponse>(responseText);
                 responseOk = res.ok;
                 responseMessage = res.msg;
+                Static.email = email.text;
+                Static.username = username.text;
             }
             if (www.isNetworkError || www.isHttpError)
             {
@@ -108,11 +110,10 @@ public class RegisterManager : MonoBehaviour
             else
             {
                 ShowSuccess(responseMessage);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(Static.timeAfterAction);
                 SceneManager.LoadScene("Login");
                 yield break;
             }
-
         }
     }
 
