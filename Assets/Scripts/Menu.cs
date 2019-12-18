@@ -44,7 +44,7 @@ public class Menu : MonoBehaviour
     {
         WWWForm form = new WWWForm();
 
-        UnityWebRequest www = UnityWebRequest.Get("http://localhost:80/user/logout");
+        UnityWebRequest www = UnityWebRequest.Get(Static.serverUrl + "/user/logout");
         yield return www.SendWebRequest();
         SceneManager.LoadScene("Start");
     }

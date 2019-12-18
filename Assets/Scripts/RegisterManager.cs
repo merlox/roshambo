@@ -5,12 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-
-public class UserJsonResponse
-{
-    public bool ok;
-    public string msg;
-}
+using SimpleJSON;
 
 public class RegisterManager : MonoBehaviour
 {
@@ -70,6 +65,7 @@ public class RegisterManager : MonoBehaviour
         StartCoroutine(PostRegisterUser());
     }
 
+    // To register a new user
     IEnumerator PostRegisterUser()
     {
         WWWForm form = new WWWForm();
@@ -77,44 +73,32 @@ public class RegisterManager : MonoBehaviour
         form.AddField("password", password.text);
         form.AddField("username", username.text);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost:80/user", form))
+        UnityWebRequest www = UnityWebRequest.Post(Static.serverUrl + "/user", form);
+        yield return www.SendWebRequest();
+        ToggleSpinner(false);
+        string responseText = www.downloadHandler.text;
+        JSONNode response;
+
+        if (www.isNetworkError || www.isHttpError)
         {
-            yield return www.SendWebRequest();
-
-            ToggleSpinner(false);
-
-            string responseText = www.downloadHandler.text;
-            bool responseOk = false;
-            string responseMessage = "";
-            if (responseText.Length > 0)
-            {
-                UserJsonResponse res = JsonUtility.FromJson<UserJsonResponse>(responseText);
-                responseOk = res.ok;
-                responseMessage = res.msg;
-                Static.email = email.text;
-                Static.username = username.text;
-            }
-            if (www.isNetworkError || www.isHttpError)
-            {
-                if (responseText.Length > 0)
-                {
-                    ShowError(responseMessage);
-                    yield break;
-                }
-                else
-                {
-                    ShowError(www.error);
-                    yield break;
-                }
-            }
-            else
-            {
-                ShowSuccess(responseMessage);
-                yield return new WaitForSeconds(Static.timeAfterAction);
-                SceneManager.LoadScene("Login");
-                yield break;
-            }
+            ShowError(www.error);
+            yield break;
         }
+        if (responseText == null || responseText.Length <= 0)
+        {
+            ShowError("Response not received from the server");
+            yield break;
+        }
+        response = JSON.Parse(responseText);
+        Debug.Log("userId " + response["userId"].Value);
+        Static.userId = response["userId"].Value;
+        Static.userAddress = response["userAddress"].Value;
+        Static.balance = response["balance"].AsDouble / 1e6;
+
+        ShowSuccess(response["msg"].Value);
+        yield return new WaitForSeconds(Static.timeAfterAction);
+        SceneManager.LoadScene("Game");
+        yield break;
     }
 
     void ShowError(string msg)
@@ -129,15 +113,7 @@ public class RegisterManager : MonoBehaviour
 
     void ToggleSpinner(bool isDisplayed)
     {
-        if (isDisplayed)
-        {
-            registerButton.gameObject.SetActive(false);
-            spinner.SetActive(true);
-        }
-        else
-        {
-            registerButton.gameObject.SetActive(true);
-            spinner.SetActive(false);
-        }
+        registerButton.gameObject.SetActive(!isDisplayed);
+        spinner.SetActive(isDisplayed);
     }
 }

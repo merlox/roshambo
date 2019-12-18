@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using SimpleJSON;
 
 public class CreateGameController : MonoBehaviour
 {
@@ -83,47 +84,40 @@ public class CreateGameController : MonoBehaviour
 
     IEnumerator PostCreateGame(string _gameName, string _gameType, string _rounds, string _moveTimer)
     {
-        Debug.Log("Called create game " + _gameName + " " + _gameType + " " + _rounds + " " + _moveTimer);
         WWWForm form = new WWWForm();
         form.AddField("gameName", _gameName);
         form.AddField("gameType", _gameType);
         form.AddField("rounds", _rounds);
         form.AddField("moveTimer", _moveTimer);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost:80/game", form))
+        UnityWebRequest www = UnityWebRequest.Post(Static.serverUrl + "/game", form);
+        yield return www.SendWebRequest();
+        ToggleSpinner(false);
+        string responseText = www.downloadHandler.text;
+        SimpleJSON.JSONNode response;
+
+        if (www.isNetworkError || www.isHttpError)
         {
-            yield return www.SendWebRequest();
-            ToggleSpinner(false);
-            string responseText = www.downloadHandler.text;
-            bool responseOk = false;
-            string responseMessage = "";
-            if (responseText.Length > 0)
-            {
-                UserJsonResponse res = JsonUtility.FromJson<UserJsonResponse>(responseText);
-                responseOk = res.ok;
-                responseMessage = res.msg;
-            }
-            if (www.isNetworkError || www.isHttpError)
-            {
-                if (responseText.Length > 0)
-                {
-                    ShowError(responseMessage);
-                    yield break;
-                }
-                else
-                {
-                    ShowError(www.error);
-                    yield break;
-                }
-            }
-            else
-            {
-                // Give the user 2 seconds to see the success message and then redirect
-                ShowSuccess(responseMessage);
-                yield return new WaitForSeconds(Static.timeAfterAction);
-                SceneManager.LoadScene("Matchmaking");
-                yield break;
-            }
+            ShowError(www.error);
+            yield break;
         }
+        if (responseText == null || responseText.Length <= 0)
+        {
+            ShowError("Response not received from the server");
+            yield break;
+        }
+
+        response = JSON.Parse(responseText);
+        if (response["ok"].AsBool == false)
+        {
+            ShowError(response["msg"].Value);
+            yield break;
+        }
+        Debug.Log("User id " + response["userId"].Value);
+        Static.userId = response["userId"].Value;
+        ShowSuccess(response["msg"].Value);
+        yield return new WaitForSeconds(Static.timeAfterAction);
+        SceneManager.LoadScene("Matchmaking");
+        yield break;
     }
 }

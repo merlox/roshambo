@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Login.unity
     guid: b828fcfd8a64d41968d9015d06d7c25c
   - enabled: 1
+    path: Assets/Scenes/LoginWithCrypto.unity
+    guid: 18c511f22e67b414ab2d4df1fd8f5256
+  - enabled: 1
     path: Assets/Scenes/Register.unity
     guid: 7ba4ec3dafd46477fa94292384ebf769
   - enabled: 1
@@ -29,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreateGame.unity
     guid: 294b63fd42abc4a9d8e0af32be6e00e6
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 839e73874ec68431593266f86bb50d00
   m_configObjects: {}

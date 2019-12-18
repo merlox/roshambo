@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{62B40923-5258-514D-E46D-776CAE424576}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MatchmakingController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Static.cs">
     <Files>
-      <File FileName="Assets/Scripts/MatchmakingController.cs" Line="8" Column="1" />
+      <File FileName="Assets/Scripts/Static.cs" Line="10" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,7 +9,7 @@
           <Node name="roshambo" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="MatchmakingController.cs" selected="True" />
+                <Node name="Static.cs" selected="True" />
               </Node>
             </Node>
             <Node name="Packages" expanded="True" />
@@ -20,7 +20,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2c9e3228-e0be-4fef-ab58-fe2ddb5d5ead" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8d4cddce-adb0-4961-9f80-0e6079c6df0f" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

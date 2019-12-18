@@ -63,12 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Blockchain.cs" />
     <Compile Include="Assets\Scripts\CardController.cs" />
-    <Compile Include="Assets\Scripts\CardInfo.cs" />
     <Compile Include="Assets\Scripts\CreateGameController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameplayController.cs" />
     <Compile Include="Assets\Scripts\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\LoginManager.cs" />
+    <Compile Include="Assets\Scripts\LoginWithCryptoManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MatchManager.cs" />
     <Compile Include="Assets\Scripts\Managers\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Managers\RoundManager.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\Scripts\Old\Behaviors\CardBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Old\Behaviors\CardGameBase.cs" />
     <Compile Include="Assets\Scripts\Old\Behaviors\HeroBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Old\CardInfo.cs" />
     <Compile Include="Assets\Scripts\Old\Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Old\Controllers\HandControllerBase.cs" />
     <Compile Include="Assets\Scripts\Old\Controllers\MatchController.cs" />
@@ -355,6 +358,12 @@
     <Reference Include="UnityEngine.XRModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
+    <Reference Include="TextMeshPro-2017.3-Editor">
+      <HintPath>/Users/merunas/Desktop/roshambo/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="TextMeshPro-2017.3-Runtime">
+      <HintPath>/Users/merunas/Desktop/roshambo/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Nethereum.KeyStore">
       <HintPath>/Users/merunas/Desktop/roshambo/Assets/Plugins/Nethereum.KeyStore.dll</HintPath>
     </Reference>
@@ -408,12 +417,6 @@
     </Reference>
     <Reference Include="Nethereum.RLP">
       <HintPath>/Users/merunas/Desktop/roshambo/Assets/Plugins/Nethereum.RLP.dll</HintPath>
-    </Reference>
-    <Reference Include="TextMeshPro-2017.3-Runtime">
-      <HintPath>/Users/merunas/Desktop/roshambo/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="TextMeshPro-2017.3-Editor">
-      <HintPath>/Users/merunas/Desktop/roshambo/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.10f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

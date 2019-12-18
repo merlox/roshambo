@@ -25,7 +25,7 @@ public class MatchmakingController : MonoBehaviour
         ShowError("");
         ToggleSpinner(true);
         WWWForm form = new WWWForm();
-        UnityWebRequest www = UnityWebRequest.Get("http://localhost:80/games");
+        UnityWebRequest www = UnityWebRequest.Get(Static.serverUrl + "/games");
         yield return www.SendWebRequest();
         ToggleSpinner(false);
         string responseText = www.downloadHandler.text;

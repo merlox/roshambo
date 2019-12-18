@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using SimpleJSON;
 
 public class LoginManager : MonoBehaviour
 {
@@ -47,44 +47,39 @@ public class LoginManager : MonoBehaviour
         form.AddField("email", email.text);
         form.AddField("password", password.text);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost:80/user/login", form))
+        UnityWebRequest www = UnityWebRequest.Post(Static.serverUrl + "/user/login", form);
+        yield return www.SendWebRequest();
+        ToggleSpinner(false);
+        string responseText = www.downloadHandler.text;
+        SimpleJSON.JSONNode response;
+
+        if (www.isNetworkError || www.isHttpError)
         {
-            yield return www.SendWebRequest();
-
-            ToggleSpinner(false);
-
-            string responseText = www.downloadHandler.text;
-            bool responseOk = false;
-            string responseMessage = "";
-            if (responseText.Length > 0)
-            {
-                UserJsonResponse res = JsonUtility.FromJson<UserJsonResponse>(responseText);
-                responseOk = res.ok;
-                responseMessage = res.msg;
-                Static.email = email.text;
-            }
-            if (www.isNetworkError || www.isHttpError)
-            {
-                if (responseText.Length > 0)
-                {
-                    ShowError(responseMessage);
-                    yield break;
-                }
-                else
-                {
-                    ShowError(www.error);
-                    yield break;
-                }
-            }
-            else
-            {
-                ShowSuccess(responseMessage);
-                yield return new WaitForSeconds(Static.timeAfterAction);
-                SceneManager.LoadScene("Game");
-                yield break;
-            }
-
+            ShowError(www.error);
+            yield break;
         }
+        if (responseText == null || responseText.Length <= 0)
+        {
+            ShowError("Response not received from the server");
+            yield break;
+        }
+
+        response = JSON.Parse(responseText);
+        if (response["ok"].AsBool == false)
+        {
+            ShowError(response["msg"].Value);
+            yield break;
+        }
+        Debug.Log("User id " + response["userId"].Value);
+
+        Static.userId = response["userId"].Value;
+        Static.userAddress = response["userAddress"].Value;
+        Static.balance = response["balance"].AsDouble / 1e6;
+
+        ShowSuccess(response["msg"].Value);
+        yield return new WaitForSeconds(Static.timeAfterAction);
+        SceneManager.LoadScene("Game");
+        yield break;
     }
 
     void ShowError(string msg)
@@ -99,15 +94,7 @@ public class LoginManager : MonoBehaviour
 
     void ToggleSpinner(bool isDisplayed)
     {
-        if (isDisplayed)
-        {
-            loginButton.gameObject.SetActive(false);
-            spinner.SetActive(true);
-        }
-        else
-        {
-            loginButton.gameObject.SetActive(true);
-            spinner.SetActive(false);
-        }
+        loginButton.gameObject.SetActive(!isDisplayed);
+        spinner.SetActive(isDisplayed);
     }
 }
