@@ -10,6 +10,9 @@ TagManager:
   - PlayerPlatform
   - AIPlatform
   - AICards
+  - Rock
+  - Scissors
+  - Paper
   layers:
   - Default
   - TransparentFX

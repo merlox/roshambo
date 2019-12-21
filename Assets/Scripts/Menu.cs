@@ -10,11 +10,14 @@ public class Menu : MonoBehaviour
     public GameObject background;
     public Button menuButton;
     public Button logoutButton;
+    public Canvas canvas;
+    private int initialCanvasSortingOrder;
     private bool isActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        initialCanvasSortingOrder = canvas.sortingOrder;
         // Make sure the background is off by default
         ToggleActive(false);
         // When you click on the background, close the menu
@@ -33,6 +36,13 @@ public class Menu : MonoBehaviour
     {
         isActive = on;
         background.SetActive(on);
+        if (on)
+        {
+            canvas.sortingOrder = 1000;
+        } else
+        {
+            canvas.sortingOrder = initialCanvasSortingOrder;
+        }
     }
 
     void LogOut()

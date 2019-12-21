@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using SimpleJSON;
+using SocketIO;
 
 public class CreateGameController : MonoBehaviour
 {
@@ -18,13 +19,15 @@ public class CreateGameController : MonoBehaviour
     public InputField moveTimer;
     public int defaultRoundNumber = 5;
     public int defaultMoveTimer = 10;
+    private SocketIOComponent socket = SocketManager.socket;
 
     // Start is called before the first frame update
     void Start()
     {
         ToggleSpinner(false);
         createGameButton.onClick.AddListener(CreateGame);
-	}
+        SocketEvents();
+    }
 
     void CreateGame()
 	{
@@ -57,16 +60,21 @@ public class CreateGameController : MonoBehaviour
         }
 
         // Send gameName, gameType, rounds, moveTimer
-        // Must be logged in to access that endpoint
-        StartCoroutine(
-            PostCreateGame(gameName.text, selectedDropdownText, selectedRoundNumber, selectedMoveTimer)
-        );
+        Dictionary<string, string> data = new Dictionary<string, string>();
+        data["gameName"] = gameName.text;
+        data["gameType"] = selectedDropdownText;
+        data["rounds"] = selectedRoundNumber;
+        data["moveTimer"] = selectedMoveTimer;
+        socket.Emit("game:create", new JSONObject(data));
     }
 
 	void ShowError(string msg)
 	{
 		this.errorMessage.text = msg;
-        Debug.Log("Error " + msg);
+        if (msg.Length > 0)
+        {
+            Debug.Log("Error " + msg);
+        }
         ToggleSpinner(false);
     }
 
@@ -82,42 +90,24 @@ public class CreateGameController : MonoBehaviour
 		spinner.SetActive(isDisplayed);
 	}
 
-    IEnumerator PostCreateGame(string _gameName, string _gameType, string _rounds, string _moveTimer)
+    private void SocketEvents()
     {
-        WWWForm form = new WWWForm();
-        form.AddField("gameName", _gameName);
-        form.AddField("gameType", _gameType);
-        form.AddField("rounds", _rounds);
-        form.AddField("moveTimer", _moveTimer);
-
-        UnityWebRequest www = UnityWebRequest.Post(Static.serverUrl + "/game", form);
-        yield return www.SendWebRequest();
-        ToggleSpinner(false);
-        string responseText = www.downloadHandler.text;
-        SimpleJSON.JSONNode response;
-
-        if (www.isNetworkError || www.isHttpError)
+        Debug.Log("Socket " + socket);
+        socket.On("game:create-complete", (SocketIOEvent e) =>
         {
-            ShowError(www.error);
-            yield break;
-        }
-        if (responseText == null || responseText.Length <= 0)
+            ShowSuccess(e.data.GetField("msg").str);
+            StartCoroutine(LoadMatchmaking());
+        });
+        socket.On("issue", (SocketIOEvent e) =>
         {
-            ShowError("Response not received from the server");
-            yield break;
-        }
+            ShowError(e.data.GetField("msg").str);
+            Debug.Log("Socket error received " + e.data);
+        });
+    }
 
-        response = JSON.Parse(responseText);
-        if (response["ok"].AsBool == false)
-        {
-            ShowError(response["msg"].Value);
-            yield break;
-        }
-        Debug.Log("User id " + response["userId"].Value);
-        Static.userId = response["userId"].Value;
-        ShowSuccess(response["msg"].Value);
+    IEnumerator LoadMatchmaking()
+    {
         yield return new WaitForSeconds(Static.timeAfterAction);
         SceneManager.LoadScene("Matchmaking");
-        yield break;
     }
 }

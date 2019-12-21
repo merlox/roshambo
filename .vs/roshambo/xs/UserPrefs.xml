@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{62B40923-5258-514D-E46D-776CAE424576}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Static.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameplayController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Static.cs" Line="10" Column="35" />
+      <File FileName="Assets/Scripts/GameplayController.cs" Line="202" Column="41" />
+      <File FileName="Assets/Scripts/Static.cs" Line="9" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,10 +10,14 @@
           <Node name="roshambo" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Static.cs" selected="True" />
+                <Node name="GameplayController.cs" selected="True" />
+              </Node>
+              <Node name="SocketIO" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="SocketIO" expanded="True" />
+                </Node>
               </Node>
             </Node>
-            <Node name="Packages" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -20,7 +25,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8d4cddce-adb0-4961-9f80-0e6079c6df0f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a9e73b3f-26b1-4f13-b2fc-5ab399798b5d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

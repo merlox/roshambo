@@ -127,11 +127,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6819121297390370898}
     m_Modifications:
+    - target: {fileID: 5185203087578411598, guid: 6505a223b9da940549c671c2c060cf14,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 525
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185203087578411598, guid: 6505a223b9da940549c671c2c060cf14,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 280
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879346124076767316, guid: 6505a223b9da940549c671c2c060cf14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7879346124984623604, guid: 6505a223b9da940549c671c2c060cf14,
         type: 3}
       propertyPath: m_Name
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 7879346124984623604, guid: 6505a223b9da940549c671c2c060cf14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879346124984623606, guid: 6505a223b9da940549c671c2c060cf14,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6819121297390370897}
     - target: {fileID: 7879346124984623607, guid: 6505a223b9da940549c671c2c060cf14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -237,26 +262,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5185203087578411598, guid: 6505a223b9da940549c671c2c060cf14,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 525
-      objectReference: {fileID: 0}
-    - target: {fileID: 5185203087578411598, guid: 6505a223b9da940549c671c2c060cf14,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 280
-      objectReference: {fileID: 0}
-    - target: {fileID: 7879346124076767316, guid: 6505a223b9da940549c671c2c060cf14,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7879346125169250725, guid: 6505a223b9da940549c671c2c060cf14,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -159.04997
-      objectReference: {fileID: 0}
     - target: {fileID: 7879346124991910286, guid: 6505a223b9da940549c671c2c060cf14,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -269,6 +274,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 6a5d02a8f3b4b4a57a1221215372a07e,
         type: 3}
+    - target: {fileID: 7879346125169250725, guid: 6505a223b9da940549c671c2c060cf14,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000015258789
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5167872844825084161, guid: 6505a223b9da940549c671c2c060cf14, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6505a223b9da940549c671c2c060cf14, type: 3}
@@ -941,6 +951,8 @@ MonoBehaviour:
   gamesContainer: {fileID: 1761863187}
   spinner: {fileID: 897343675}
   gameItemPrefab: {fileID: 5258175585243658260, guid: 41579002e8dc1474fad9b0e017c198c5,
+    type: 3}
+  ownerGameItemPrefab: {fileID: 1281629541355845067, guid: 14af8f8922d8847e8b7c65557f4d0523,
     type: 3}
   noGamesAvailableText: {fileID: 1534099124}
   errorText: {fileID: 1982367308}
@@ -2090,11 +2102,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6819121297390370898}
     m_Modifications:
-    - target: {fileID: 1260140512090118843, guid: ce4f70c88bb1940a58ac8ef7d6e87514,
-        type: 3}
-      propertyPath: m_Name
-      value: Back button
-      objectReference: {fileID: 0}
     - target: {fileID: 1260140512090118842, guid: ce4f70c88bb1940a58ac8ef7d6e87514,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2199,6 +2206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260140512090118843, guid: ce4f70c88bb1940a58ac8ef7d6e87514,
+        type: 3}
+      propertyPath: m_Name
+      value: Back button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce4f70c88bb1940a58ac8ef7d6e87514, type: 3}

@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using SimpleJSON;
+using SocketIO;
+using System;
 
 public class LoginWithCryptoManager : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class LoginWithCryptoManager : MonoBehaviour
     public Text errorMessage;
     public Text successMessage;
     public GameObject spinner;
+    private SocketIOComponent socket = SocketManager.socket;
 
     // Start is called before the first frame update
     void Start()
@@ -41,46 +44,37 @@ public class LoginWithCryptoManager : MonoBehaviour
             return;
         }
 
-        ToggleSpinner(true);
-        StartCoroutine(Login());
+        LoginWithCrypto();
     }
 
-    IEnumerator Login()
+    private void LoginWithCrypto()
     {
-        WWWForm form = new WWWForm();
-        form.AddField("mnemonic", mnemonicInput.text);
+        ShowError("");
+        ShowSuccess("");
+        ToggleSpinner(true);
+        Dictionary<string, string> data = new Dictionary<string, string>();
+        data["mnemonic"] = mnemonicInput.text;
+        socket.Emit("setup:login-with-crypto", new JSONObject(data));
 
-        UnityWebRequest www = UnityWebRequest.Post(Static.serverUrl + "/user/login-with-crypto", form);
-        yield return www.SendWebRequest();
-        ToggleSpinner(false);
-        string responseText = www.downloadHandler.text;
-        SimpleJSON.JSONNode response;
+        socket.On("setup:login-complete", (SocketIOEvent e) =>
+        {
+            string a = e.data.GetField("response").ToString();
+            JSONNode res = JSON.Parse(a);
 
-        if (www.isNetworkError || www.isHttpError)
-        {
-            ShowError(www.error);
-            yield break;
-        }
-        if (responseText == null || responseText.Length <= 0)
-        {
-            ShowError("Response not received from the server");
-            yield break;
-        }
+            Static.userId = res["userId"].Value;
+            Static.userAddress = res["userAddress"].Value;
+            Static.balance = res["balance"].AsDouble / 1e6;
+            ShowSuccess(res["msg"].Value);
+            ToggleSpinner(false);
 
-        response = JSON.Parse(responseText);
-        if (response["ok"].AsBool == false)
+            StartCoroutine(LoadScene());
+        });
+
+        socket.On("issue", (SocketIOEvent e) =>
         {
-            ShowError(response["msg"].Value);
-            yield break;
-        }
-        Debug.Log("User id " + response["userId"].Value);
-        Static.userId = response["userId"].Value;
-        Static.userAddress = response["userAddress"].Value;
-        Static.balance = response["balance"].AsDouble / 1e6;
-        ShowSuccess(response["msg"].Value);
-        yield return new WaitForSeconds(Static.timeAfterAction);
-        SceneManager.LoadScene("Game");
-        yield break;
+            ShowError(e.data.GetField("msg").str);
+            ToggleSpinner(false);
+        });
     }
 
     void ShowError(string msg)
@@ -105,5 +99,12 @@ public class LoginWithCryptoManager : MonoBehaviour
             loginButton.gameObject.SetActive(true);
             spinner.SetActive(false);
         }
+    }
+
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(Static.timeAfterAction);
+        SceneManager.LoadScene("Game");
+        yield break;
     }
 }

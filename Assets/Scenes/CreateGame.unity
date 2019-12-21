@@ -250,11 +250,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150538405}
     m_Modifications:
-    - target: {fileID: 7686116599116417483, guid: 43420ee29bffb4de594e7a9b0426ac40,
-        type: 3}
-      propertyPath: m_Name
-      value: Error message
-      objectReference: {fileID: 0}
     - target: {fileID: 7686116599116417482, guid: 43420ee29bffb4de594e7a9b0426ac40,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -359,6 +354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686116599116417483, guid: 43420ee29bffb4de594e7a9b0426ac40,
+        type: 3}
+      propertyPath: m_Name
+      value: Error message
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43420ee29bffb4de594e7a9b0426ac40, type: 3}
@@ -1486,6 +1486,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7879346124984623606, guid: 6505a223b9da940549c671c2c060cf14,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6925031782801954067}
     - target: {fileID: 7879346124984623607, guid: 6505a223b9da940549c671c2c060cf14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2129,10 +2134,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6925031782801954064}
     m_Modifications:
-    - target: {fileID: 1260140512090118843, guid: ce4f70c88bb1940a58ac8ef7d6e87514,
+    - target: {fileID: 1260140512090118821, guid: ce4f70c88bb1940a58ac8ef7d6e87514,
         type: 3}
-      propertyPath: m_Name
-      value: Back button Arrow
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Matchmaking
       objectReference: {fileID: 0}
     - target: {fileID: 1260140512090118842, guid: ce4f70c88bb1940a58ac8ef7d6e87514,
         type: 3}
@@ -2239,10 +2244,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1260140512090118821, guid: ce4f70c88bb1940a58ac8ef7d6e87514,
+    - target: {fileID: 1260140512090118843, guid: ce4f70c88bb1940a58ac8ef7d6e87514,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Matchmaking
+      propertyPath: m_Name
+      value: Back button Arrow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce4f70c88bb1940a58ac8ef7d6e87514, type: 3}

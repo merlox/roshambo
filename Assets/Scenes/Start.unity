@@ -177,10 +177,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6a5d02a8f3b4b4a57a1221215372a07e, type: 3}
-    m_FontSize: 159
+    m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 5
     m_MaxSize: 159
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -208,7 +208,6 @@ GameObject:
   - component: {fileID: 360404277}
   - component: {fileID: 360404279}
   - component: {fileID: 360404278}
-  - component: {fileID: 360404280}
   m_Layer: 5
   m_Name: Big Background
   m_TagString: Untagged
@@ -271,66 +270,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360404276}
   m_CullTransparentMesh: 0
---- !u!114 &360404280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360404276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5ac72b1b0452443baafc1c0a3d3224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MessagePrefab: {fileID: 0}
-  infoText: {fileID: 0}
-  CounterFrame: {fileID: 0}
-  RockCounter: {fileID: 0}
-  PaperCounter: {fileID: 0}
-  ScissorsCounter: {fileID: 0}
-  PlayerRock: {fileID: 0}
-  PlayerPaper: {fileID: 0}
-  PlayerScissors: {fileID: 0}
-  PlayerCardRoot: {fileID: 0}
-  PlayerStarRoot: {fileID: 0}
-  OpponentRock: {fileID: 0}
-  OpponentPaper: {fileID: 0}
-  OpponentScissors: {fileID: 0}
-  OpponentCardRoot: {fileID: 0}
-  OpponentStarRoot: {fileID: 0}
-  RoomLobbyFrame: {fileID: 0}
-  MatchListEntryItem: {fileID: 0}
-  MatchListFrame: {fileID: 0}
-  MatchListContent: {fileID: 0}
-  SetupMatchButton: {fileID: 0}
-  CreateMatchButton: {fileID: 0}
-  ReturnToListButton: {fileID: 0}
-  Star: {fileID: 0}
-  CardBackground: {fileID: 0}
-  ReturnHomeButton: {fileID: 0}
-  RematchButton: {fileID: 0}
-  VictoryFrame: {fileID: 0}
-  DefeatFrame: {fileID: 0}
-  MatchResultFrame: {fileID: 0}
-  MultiPlayerButton: {fileID: 0}
-  SinglePlayerButton: {fileID: 0}
-  StartMatchButton: {fileID: 0}
-  SelectGameTypeFrame: {fileID: 0}
-  MatchSetupFrame: {fileID: 0}
-  UsernameText: {fileID: 0}
-  PasswordText: {fileID: 0}
-  LoginButton: {fileID: 0}
-  LoginFrame: {fileID: 0}
-  PlayerCardController: {fileID: 0}
-  OpponentCardController: {fileID: 0}
-  PlayerStarController: {fileID: 0}
-  OpponentStarController: {fileID: 0}
-  AllCardsToggle: {fileID: 0}
-  RoundsToggle: {fileID: 0}
-  RoundCount: {fileID: 0}
-  TimerLength: {fileID: 0}
-  MatchName: {fileID: 0}
 --- !u!1 &593617590
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,8 +513,8 @@ RectTransform:
   - {fileID: 632510455}
   - {fileID: 2114538214}
   - {fileID: 885056453}
-  m_Father: {fileID: 1432178368}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -699,10 +638,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6a5d02a8f3b4b4a57a1221215372a07e, type: 3}
-    m_FontSize: 159
+    m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 7
     m_MaxSize: 159
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1131,11 +1070,85 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 750600004}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1833247999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_Name
+      value: SocketIO
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+--- !u!1 &1833248000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1833247999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1833248001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833248000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72858a91c0b1e464482478c0cd1ad5f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1845644973
 GameObject:
   m_ObjectHideFlags: 0

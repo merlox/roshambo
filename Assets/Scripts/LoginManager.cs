@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using SimpleJSON;
+using SocketIO;
+using System.Collections.Generic;
 
 public class LoginManager : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class LoginManager : MonoBehaviour
     public Text errorMessage;
     public Text successMessage;
     public GameObject spinner;
+    private SocketIOComponent socket = SocketManager.socket;
 
     // Use this for initialization
     void Start()
@@ -38,48 +41,37 @@ public class LoginManager : MonoBehaviour
         }
 
         ToggleSpinner(true);
-        StartCoroutine(Login());
+        Login();
     }
 
-    IEnumerator Login()
+    private void Login()
     {
-        WWWForm form = new WWWForm();
-        form.AddField("email", email.text);
-        form.AddField("password", password.text);
+        ShowError("");
+        ShowSuccess("");
+        ToggleSpinner(true);
+        Dictionary<string, string> data = new Dictionary<string, string>();
+        data["email"] = email.text;
+        data["password"] = password.text;
 
-        UnityWebRequest www = UnityWebRequest.Post(Static.serverUrl + "/user/login", form);
-        yield return www.SendWebRequest();
-        ToggleSpinner(false);
-        string responseText = www.downloadHandler.text;
-        SimpleJSON.JSONNode response;
+        socket.Emit("setup:login", new JSONObject(data));
 
-        if (www.isNetworkError || www.isHttpError)
+        socket.On("setup:login-complete", (SocketIOEvent e) =>
         {
-            ShowError(www.error);
-            yield break;
-        }
-        if (responseText == null || responseText.Length <= 0)
+            string a = e.data.GetField("response").ToString();
+            JSONNode res = JSON.Parse(a);
+            Static.userId = res["userId"].Value;
+            Static.userAddress = res["userAddress"].Value;
+            Static.balance = res["balance"].AsDouble / 1e6;
+            ShowSuccess(res["msg"].Value);
+            ToggleSpinner(false);
+            StartCoroutine(LoadScene());
+        });
+
+        socket.On("issue", (SocketIOEvent e) =>
         {
-            ShowError("Response not received from the server");
-            yield break;
-        }
-
-        response = JSON.Parse(responseText);
-        if (response["ok"].AsBool == false)
-        {
-            ShowError(response["msg"].Value);
-            yield break;
-        }
-        Debug.Log("User id " + response["userId"].Value);
-
-        Static.userId = response["userId"].Value;
-        Static.userAddress = response["userAddress"].Value;
-        Static.balance = response["balance"].AsDouble / 1e6;
-
-        ShowSuccess(response["msg"].Value);
-        yield return new WaitForSeconds(Static.timeAfterAction);
-        SceneManager.LoadScene("Game");
-        yield break;
+            ShowError(e.data.GetField("msg").str);
+            ToggleSpinner(false);
+        });
     }
 
     void ShowError(string msg)
@@ -96,5 +88,12 @@ public class LoginManager : MonoBehaviour
     {
         loginButton.gameObject.SetActive(!isDisplayed);
         spinner.SetActive(isDisplayed);
+    }
+
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(Static.timeAfterAction);
+        SceneManager.LoadScene("Game");
+        yield break;
     }
 }
