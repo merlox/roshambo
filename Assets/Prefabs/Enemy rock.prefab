@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2091709985474165207}
   - component: {fileID: 2424379846893056078}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,13 +89,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4228507006581491009}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4228507006581491009
 Transform:
   m_ObjectHideFlags: 0
@@ -124,13 +124,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5842018602030393926}
   - component: {fileID: 4274459469325328403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5842018602030393926
 Transform:
   m_ObjectHideFlags: 0
@@ -204,9 +204,9 @@ GameObject:
   m_Component:
   - component: {fileID: 438190264338414227}
   - component: {fileID: 6781190642449329908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy rock
-  m_TagString: AICards
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,13 +263,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5790500306029608761}
   - component: {fileID: 8449440932958834702}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5790500306029608761
 Transform:
   m_ObjectHideFlags: 0
@@ -343,13 +343,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3010023397376826627}
   - component: {fileID: 5930245023734406931}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3010023397376826627
 Transform:
   m_ObjectHideFlags: 0
@@ -423,13 +423,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4756329361183125518}
   - component: {fileID: 4637827011721751900}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4756329361183125518
 Transform:
   m_ObjectHideFlags: 0

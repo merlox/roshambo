@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using SocketIO;
 using TMPro;
 using UnityEngine.SceneManagement;
+using SimpleJSON;
 
 /*
   1. Implement socket.io to join a game by clicking on the Join button for each game
@@ -43,6 +44,9 @@ public class GameplayController : MonoBehaviour
     public GameObject[] allyStars;
     public GameObject[] enemyStars;
     private GameObject placedCard; // The card in the active section
+    public GameObject playerOneCardsContainer;
+    public GameObject playerTwoCardsContainer;
+    private bool isPlayerOne = false;
 
     private void Start()
     {
@@ -58,6 +62,17 @@ public class GameplayController : MonoBehaviour
         }
         playerOne.text = Static.playerOne;
         playerTwo.text = Static.playerTwo;
+        if (Static.userId == Static.playerOne) isPlayerOne = true;
+
+        // Show cards for the right player
+        foreach(Transform child in playerOneCardsContainer.transform)
+        {
+            child.Find("Open").gameObject.SetActive(isPlayerOne);
+        }
+        foreach (Transform child in playerTwoCardsContainer.transform)
+        {
+            child.Find("Open").gameObject.SetActive(!isPlayerOne);
+        }
     }
 
     // Update is called once per frame
@@ -66,10 +81,16 @@ public class GameplayController : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
         RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+        string cardPlacementName = isPlayerOne ? "Me" : "Enemy";
+        int playerPlacementName = isPlayerOne ?
+            LayerMask.NameToLayer("Ally-card") :
+            LayerMask.NameToLayer("Enemy-card");
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (hit.collider != null && hit.collider.gameObject.name == "Me" && clicked != null)
+            if (hit.collider != null &&
+                hit.collider.gameObject.name == cardPlacementName &&
+                clicked != null)
             {
                 // Place it on the active area
                 clicked.transform.position = hit.collider.gameObject.transform.position;
@@ -83,7 +104,7 @@ public class GameplayController : MonoBehaviour
                 clicked.transform.position = clickedInitialPosition;
                 clicked = null;
             }
-            else if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ally-card"))
+            else if (hit.collider != null && hit.collider.gameObject.layer == playerPlacementName)
             {
                 // If first click, select the card
                 clicked = hit.collider.gameObject;
@@ -113,65 +134,40 @@ public class GameplayController : MonoBehaviour
 
     private void SocketEvents()
     {
-        socket.On("game:round:draw", (SocketIOEvent e) =>
+        socket.On("game:round:draw", (SocketIOEvent res) =>
         {
             Debug.Log("Received draw event");
             currentRound++;
             currentRoundVisual.text = currentRound.ToString();
             notification.text = "Draw";
-            HideNotification();
+            string resText = res.data.ToString();
+            JSONNode parsed = JSON.Parse(resText);
+            DestroyEnemyUsedCard(placedCard, parsed);
         });
 
-        socket.On("game:round:winner-one", (SocketIOEvent e) =>
+        socket.On("game:round:winner-one", (SocketIOEvent res) =>
         {
             Debug.Log("Received winner one");
             currentRound++;
             currentRoundVisual.text = currentRound.ToString();
             notification.text = "Round winner player one";
-            HideNotification();
-            Destroy(placedCard);
-            foreach (GameObject star in allyStars)
-            {
-                if (!star.activeSelf)
-                {
-                    star.SetActive(true);
-                    break;
-                }
-            }
-            foreach (GameObject star in enemyStars)
-            {
-                if (star.activeSelf)
-                {
-                    star.SetActive(false);
-                    break;
-                }
-            }
+            MoveStarsRound(true);
+            string resText = res.data.ToString();
+            JSONNode parsed = JSON.Parse(resText);
+            DestroyEnemyUsedCard(placedCard, parsed);
         });
 
-        socket.On("game:round:winner-two", (SocketIOEvent e) =>
+
+        socket.On("game:round:winner-two", (SocketIOEvent res) =>
         {
             Debug.Log("Received winner two");
             currentRound++;
             currentRoundVisual.text = currentRound.ToString();
             notification.text = "Round winner player two";
-            HideNotification();
-            Destroy(placedCard);
-            foreach (GameObject star in allyStars)
-            {
-                if (star.activeSelf)
-                {
-                    star.SetActive(true);
-                    break;
-                }
-            }
-            foreach (GameObject star in enemyStars)
-            {
-                if (!star.activeSelf)
-                {
-                    star.SetActive(false);
-                    break;
-                }
-            }
+            MoveStarsRound(false);
+            string resText = res.data.ToString();
+            JSONNode parsed = JSON.Parse(resText);
+            DestroyEnemyUsedCard(placedCard, parsed);
         });
 
         socket.On("game:finish:winner-player-two", (SocketIOEvent e) =>
@@ -203,9 +199,95 @@ public class GameplayController : MonoBehaviour
         });
     }
 
-    private IEnumerator HideNotification()
+    private void DestroyEnemyUsedCard(GameObject myCard, JSONNode parsed)
     {
-        yield return new WaitForSeconds(3);
+        if (isPlayerOne)
+        {
+            string selectedEnemyCard = parsed["playerTwoActive"].Value;
+            foreach (Transform child in playerTwoCardsContainer.transform)
+            {
+                if (child.tag == selectedEnemyCard)
+                {
+                    StartCoroutine(MoveObject(myCard, child.transform, GameObject.Find("Enemy").transform.position, .3f));
+                    break;
+                }
+            }
+        }
+        else
+        {
+            string selectedEnemyCard = parsed["playerOneActive"].Value;
+            foreach (Transform child in playerOneCardsContainer.transform)
+            {
+                if (child.tag == selectedEnemyCard)
+                {
+                    StartCoroutine(MoveObject(myCard, child.transform, GameObject.Find("Me").transform.position, .3f));
+                    break;
+                }
+            }
+        }
+    }
+
+    private void MoveStarsRound(bool isPlayerOneWinner)
+    {
+        if (isPlayerOneWinner)
+        {
+            foreach (GameObject star in allyStars)
+            {
+                if (!star.activeSelf)
+                {
+                    star.SetActive(true);
+                    break;
+                }
+            }
+            foreach (GameObject star in enemyStars)
+            {
+                if (star.activeSelf)
+                {
+                    star.SetActive(false);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject star in allyStars)
+            {
+                if (star.activeSelf)
+                {
+                    star.SetActive(false);
+                    break;
+                }
+            }
+            foreach (GameObject star in enemyStars)
+            {
+                if (!star.activeSelf)
+                {
+                    star.SetActive(true);
+                    break;
+                }
+            }
+        }
+    }
+
+    IEnumerator MoveObject(GameObject myCard, Transform item, Vector3 target, float overTime)
+    {
+        float startTime = Time.time;
+        // Attention, the start position must be separated to avoid the lerp from
+        // going too fast. Don't do item.position = Vector3.Lerp(item.position...)
+        // since the start will accelerate too fast
+        Vector3 startPosition = item.position;
+        while (Time.time < startTime + overTime)
+        {
+            float pos = (Time.time - startTime) / overTime;
+            item.position = Vector3.Lerp(startPosition, target, pos);
+            yield return null;
+        }
+        item.position = target;
+        item.Find("Open").gameObject.SetActive(true);
+        item.Find("Background closed").gameObject.SetActive(false);
+        yield return new WaitForSeconds(1);
+        Destroy(item.gameObject);
+        Destroy(myCard);
         notification.text = "";
     }
 }

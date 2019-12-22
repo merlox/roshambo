@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 33565927}
   m_Layer: 0
-  m_Name: Enemy cards
+  m_Name: Player two cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 514
+  m_textAlignment: 516
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -828,6 +828,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 817339866}
     m_Modifications:
+    - target: {fileID: 4425310724738750563, guid: d148ee2403d14453ca2a1ee8a8891643,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5973512827671735127, guid: d148ee2403d14453ca2a1ee8a8891643,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -903,6 +908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8564547382966968336, guid: d148ee2403d14453ca2a1ee8a8891643,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d148ee2403d14453ca2a1ee8a8891643, type: 3}
 --- !u!4 &228957439 stripped
@@ -918,6 +928,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 817339866}
     m_Modifications:
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_inputSource
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2344496288801188975, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -987,6 +1012,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.16024886
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867682709020801799, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428004968173298796, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7268658641082899597, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
         type: 3}
@@ -1171,7 +1206,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 514
+  m_textAlignment: 516
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1406,10 +1441,35 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.16024671
       objectReference: {fileID: 0}
+    - target: {fileID: 4658460586485452905, guid: db8ef57a4858b4195855d89f4fa40390,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5445394178633476054, guid: db8ef57a4858b4195855d89f4fa40390,
         type: 3}
       propertyPath: m_Name
       value: Enemy scissors (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994840996026727209, guid: db8ef57a4858b4195855d89f4fa40390,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320211365848034013, guid: db8ef57a4858b4195855d89f4fa40390,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475777198023183771, guid: db8ef57a4858b4195855d89f4fa40390,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279206187922907645, guid: db8ef57a4858b4195855d89f4fa40390,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db8ef57a4858b4195855d89f4fa40390, type: 3}
@@ -2555,6 +2615,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 817339866}
     m_Modifications:
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_inputSource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2344496288801188975, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2624,6 +2699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.16024886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428004968173298796, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7268658641082899597, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
         type: 3}
@@ -2936,7 +3016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817339866}
   m_Layer: 0
-  m_Name: 'Ally cards '
+  m_Name: Player one cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3208,6 +3288,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 817339866}
     m_Modifications:
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_inputSource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243770524873257459, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2344496288801188975, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3277,6 +3372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.16024886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428004968173298796, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7268658641082899597, guid: ffdc2aab3e10f474abb9ba30a8733f2d,
         type: 3}
@@ -4647,10 +4747,35 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.16024671
       objectReference: {fileID: 0}
+    - target: {fileID: 3713285925050256494, guid: 51d697d9ff6c649e681cb049db26aa47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4115008985656959172, guid: 51d697d9ff6c649e681cb049db26aa47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5338912754455370786, guid: 51d697d9ff6c649e681cb049db26aa47,
         type: 3}
       propertyPath: m_Name
       value: Enemy rock (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372082036809914347, guid: 51d697d9ff6c649e681cb049db26aa47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959901557121836043, guid: 51d697d9ff6c649e681cb049db26aa47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059160386524614464, guid: 51d697d9ff6c649e681cb049db26aa47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d697d9ff6c649e681cb049db26aa47, type: 3}
@@ -4753,6 +4878,8 @@ MonoBehaviour:
   - {fileID: 1996895082}
   - {fileID: 1906637991}
   - {fileID: 588702969}
+  playerOneCardsContainer: {fileID: 817339865}
+  playerTwoCardsContainer: {fileID: 33565926}
 --- !u!4 &1408897291
 Transform:
   m_ObjectHideFlags: 0
@@ -5083,6 +5210,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.16024671
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361000837651746897, guid: 3494c4914e7f245d3a3ddcd218e71985,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769258250553616419, guid: 3494c4914e7f245d3a3ddcd218e71985,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8720823974869537867, guid: 3494c4914e7f245d3a3ddcd218e71985,
         type: 3}
@@ -5714,7 +5851,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 514
+  m_textAlignment: 516
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8136410964139677442}
   - component: {fileID: 2422285497863012177}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,9 +90,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4008015420675114881}
   - component: {fileID: 4246578862320934871}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy scissors
-  m_TagString: AICards
+  m_TagString: Scissors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,13 +149,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2464991696725345600}
   - component: {fileID: 420967134086903424}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2464991696725345600
 Transform:
   m_ObjectHideFlags: 0
@@ -229,13 +229,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8971228513259345706}
   - component: {fileID: 7194132590771960604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scissors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8971228513259345706
 Transform:
   m_ObjectHideFlags: 0
@@ -309,13 +309,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8841740402544534877}
   - component: {fileID: 6645466495520243032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8841740402544534877
 Transform:
   m_ObjectHideFlags: 0
@@ -389,13 +389,13 @@ GameObject:
   m_Component:
   - component: {fileID: 684283701377656923}
   - component: {fileID: 6920163681480752705}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &684283701377656923
 Transform:
   m_ObjectHideFlags: 0
@@ -468,13 +468,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1412682991917212261}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1412682991917212261
 Transform:
   m_ObjectHideFlags: 0
